@@ -1,0 +1,17 @@
+<!-- templates/registros/visitante_form.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{% if visitante %}Editar{% else %}Registrar{% endif %} Visitante</title>
+</head>
+<body>
+    <h1>{% if visitante %}Editar{% else %}Registrar{% endif %} Visitante</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">{% if visitante %}Actualizar{% else %}Registrar{% endif %}</button>
+    </form>
+    <a href="{% url 'visitante_list' %}">Volver a la Lista</a>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!-- templates/registros/residente_list.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Residentes</title>
+</head>
+<body>
+    <h1>Lista de Residentes</h1>
+    <a href="{% url 'residente_create' %}">Crear Nuevo Residente</a>
+    <ul>
+        {% for residente in object_list %}
+            <li>
+                <a href="{% url 'residente_detail' residente.pk %}">{{ residente.nombre }} {{ residente.apellido_paterno }}</a>
+                - <a href="{% url 'residente_update' residente.pk %}">Editar</a>
+                - <a href="{% url 'residente_delete' residente.pk %}">Eliminar</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

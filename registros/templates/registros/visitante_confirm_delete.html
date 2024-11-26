@@ -1,0 +1,17 @@
+<!-- templates/registros/visitante_confirm_delete.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Eliminar Visitante</title>
+</head>
+<body>
+    <h1>Eliminar Visitante</h1>
+    <p>¿Estás seguro de que quieres eliminar a {{ visitante.nombre }} {{ visitante.apellido_paterno }}?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Eliminar</button>
+    </form>
+    <a href="{% url 'visitante_list' %}">Cancelar</a>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!-- templates/registros/visitante_list.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Visitantes</title>
+</head>
+<body>
+    <h1>Lista de Visitantes</h1>
+    <a href="{% url 'visitante_create' %}">Registrar Nuevo Visitante</a>
+    <ul>
+        {% for visitante in object_list %}
+            <li>
+                <a href="{% url 'visitante_detail' visitante.pk %}">{{ visitante.nombre }} {{ visitante.apellido_paterno }}</a>
+                - <a href="{% url 'visitante_update' visitante.pk %}">Editar</a>
+                - <a href="{% url 'visitante_delete' visitante.pk %}">Eliminar</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

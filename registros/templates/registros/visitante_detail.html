@@ -1,0 +1,19 @@
+<!-- templates/registros/visitante_detail.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalle de Visitante</title>
+</head>
+<body>
+    <h1>Detalle de {{ visitante.nombre }} {{ visitante.apellido_paterno }}</h1>
+    <p><strong>RUT:</strong> {{ visitante.rut }}</p>
+    <p><strong>Parentesco con Residente:</strong> {{ visitante.parentesco }}</p>
+    <p><strong>Fecha de Nacimiento:</strong> {{ visitante.fecha_nacimiento }}</p>
+    <p><strong>Huella Dactilar:</strong> {{ visitante.huella_dactilar }}</p>
+
+    <a href="{% url 'visitante_update' visitante.pk %}">Editar</a>
+    <a href="{% url 'visitante_delete' visitante.pk %}">Eliminar</a>
+    <a href="{% url 'visitante_list' %}">Volver a la Lista</a>
+</body>
+</html>

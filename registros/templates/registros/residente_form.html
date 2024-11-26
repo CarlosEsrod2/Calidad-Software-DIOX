@@ -1,0 +1,17 @@
+<!-- templates/registros/residente_form.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{% if residente %}Editar{% else %}Crear{% endif %} Residente</title>
+</head>
+<body>
+    <h1>{% if residente %}Editar{% else %}Crear{% endif %} Residente</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">{% if residente %}Actualizar{% else %}Crear{% endif %}</button>
+    </form>
+    <a href="{% url 'residente_list' %}">Volver a la Lista</a>
+</body>
+</html>

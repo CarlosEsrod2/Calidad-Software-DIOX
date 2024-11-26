@@ -1,0 +1,7 @@
+<!-- personal_form.html -->
+<h2>{% if object %}Editar{% else %}Crear{% endif %} Personal</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Guardar</button>
+</form>

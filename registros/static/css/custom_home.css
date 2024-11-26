@@ -1,0 +1,75 @@
+/* General Styles */
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f8f8f8;
+    color: #333;
+}
+
+header.header {
+    background: #800000;
+    color: white;
+    text-align: center;
+    padding: 1.5em 0;
+}
+
+header.header h1 {
+    margin: 0;
+    font-size: 2em;
+}
+
+header.header p {
+    font-size: 1.2em;
+    margin-top: 0.5em;
+}
+
+main.dashboard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.card {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.card h2 {
+    margin: 0 0 10px;
+    color: #440a0a;
+}
+
+.card p {
+    margin: 0 0 15px;
+    font-size: 0.9em;
+}
+
+.card .button {
+    display: inline-block;
+    padding: 10px 15px;
+    color: white;
+    background: #800000;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.card .button:hover {
+    background: #440a0a;
+}
+
+footer.footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+    margin-top: 20px;
+}

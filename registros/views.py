@@ -1,8 +1,17 @@
 # registros/views.py
 from django.urls import reverse_lazy
+from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .models import Personal, Residente, Visitante
-from .forms import ResidenteForm, VisitanteForm, PersonalForm
+from .forms import ResidenteForm, VisitanteForm, PersonalForm, LoginForm
+from django.contrib.auth import authenticate, login
+from django.contrib import messages
+
+def home(request):
+    return render(request, "home.html")
+
+def login_view(request):
+    return render(request, 'registration/login.html')
 
 # Vistas para Residente
 class ResidenteListView(ListView):

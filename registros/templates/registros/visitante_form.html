@@ -1,17 +1,27 @@
-<!-- templates/registros/visitante_form.html -->
+<!-- templates/registros/residente_form.html -->
 <!DOCTYPE html>
 <html lang="es">
+{% load static %}
 <head>
     <meta charset="UTF-8">
-    <title>{% if visitante %}Editar{% else %}Registrar{% endif %} Visitante</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if visitante %}Editar{% else %}Crear{% endif %} Visitante</title>
+    <link rel="stylesheet" href="{% static 'css/custom_form.css' %}">
 </head>
 <body>
-    <h1>{% if visitante %}Editar{% else %}Registrar{% endif %} Visitante</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">{% if visitante %}Actualizar{% else %}Registrar{% endif %}</button>
-    </form>
-    <a href="{% url 'visitante_list' %}">Volver a la Lista</a>
+    <nav class="navbar">
+        <h1>Administración de Visitantes</h1>
+    </nav>
+    <div class="container">
+        <div class="form-card">
+            <h1>{% if visitante %}Editar{% else %}Crear{% endif %} Visitante</h1>
+            <form method="post" class="form">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="form-button">{% if visitante %}Actualizar{% else %}Crear{% endif %}</button>
+            </form>
+            <a href="{% url 'visitante_list' %}" class="back-button">Volver a la Lista</a>
+        </div>
+    </div>
 </body>
 </html>

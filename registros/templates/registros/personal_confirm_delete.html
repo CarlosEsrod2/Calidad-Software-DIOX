@@ -1,1 +1,24 @@
-<!-- vacío -->
+<!-- templates/registros/residente_confirm_delete.html -->
+<!DOCTYPE html>
+<html lang="es">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eliminar Residente</title>
+    <link rel="stylesheet" href="{% static 'css/custom_eliminar.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>Eliminar Personal</h1>
+            <p>¿Estás seguro de que quieres eliminar a <strong>{{ personal.primer_nombre }} {{ personal.apellido_paterno }}</strong>?</p>
+            <form method="post" class="form-actions">
+                {% csrf_token %}
+                <button type="submit" class="delete-button">Eliminar</button>
+                <a href="{% url 'personal_list' %}" class="cancel-button">Cancelar</a>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

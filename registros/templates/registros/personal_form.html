@@ -1,7 +1,27 @@
-<!-- personal_form.html -->
-<h2>{% if object %}Editar{% else %}Crear{% endif %} Personal</h2>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Guardar</button>
-</form>
+<!-- templates/registros/residente_form.html -->
+<!DOCTYPE html>
+<html lang="es">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if residente %}Editar{% else %}Crear{% endif %} Residente</title>
+    <link rel="stylesheet" href="{% static 'css/custom_form.css' %}">
+</head>
+<body>
+    <nav class="navbar">
+        <h1>Administración de Personal</h1>
+    </nav>
+    <div class="container">
+        <div class="form-card">
+            <h1>{% if personal %}Editar{% else %}Crear{% endif %} Personal</h1>
+            <form method="post" class="form">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="form-button">{% if personal %}Actualizar{% else %}Crear{% endif %}</button>
+            </form>
+            <a href="{% url 'personal_list' %}" class="back-button">Volver a la Lista</a>
+        </div>
+    </div>
+</body>
+</html>

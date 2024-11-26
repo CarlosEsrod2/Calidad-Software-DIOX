@@ -1,1 +1,39 @@
-<!-- vacío -->
+<!-- templates/registros/residente_detail.html -->
+<!DOCTYPE html>
+<html lang="es">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle de Residente</title>
+    <link rel="stylesheet" href="{% static 'css/custom_detail.css' %}">
+</head>
+<body>
+    <nav class="navbar">
+        <h1>Administración de Personal</h1>
+    </nav>
+    <div class="container">
+        
+        <div class="card">
+            <h1 class="card-title">{{ personal.primer_nombre }} {{ personal.apellido_paterno }}</h1>
+            <div class="card-content">
+                <p><strong>RUT:</strong> {{ personal.rut }}</p>
+                <p><strong>Cargo:</strong> {{ personal.cargo }}</p>
+                <p><strong>Turno:</strong> {{ personal.turno }}</p>
+                <p><strong>RUT paciente:</strong> {{ personal.rut_paciente }}</p>
+                <p><strong>Pacientes asignados:</strong> {{ personal.pacientes_asignados }}</p>
+            </div>
+            <div class="card-actions">
+                <a href="{% url 'personal_update' personal.pk %}" class="action-button edit">Editar</a>
+                <a href="{% url 'personal_delete' personal.pk %}" class="action-button delete">Eliminar</a>
+                <a href="{% url 'personal_list' %}" class="action-button back">Volver a la Lista</a>
+                <div class="home-button">
+                    <a href="{% url 'home' %}" class="button-home">Volver al inicio</a>
+                    </div>
+            </div>
+            
+        </div>
+    </div>
+
+</body>
+</html>

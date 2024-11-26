@@ -3,6 +3,11 @@ from django import forms
 from registros.utils import verificar_rut
 from .models import Personal, Residente, Visitante
 
+
+class LoginForm(forms.Form):
+    username = forms.CharField(max_length=100, label="Nombre de Usuario")
+    password = forms.CharField(widget=forms.PasswordInput, label="Contraseña")
+    
 class ResidenteForm(forms.ModelForm):
     class Meta:
         model = Residente

@@ -1,21 +1,39 @@
-<!-- templates/registros/visitante_list.html -->
+<!-- templates/registros/residente_list.html -->
 <!DOCTYPE html>
 <html lang="es">
+{%  load static %}
 <head>
     <meta charset="UTF-8">
-    <title>Lista de Visitantes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Residentes</title>
+    <link rel="stylesheet" href="{% static 'css/custom_list.css' %}">
 </head>
 <body>
-    <h1>Lista de Visitantes</h1>
-    <a href="{% url 'visitante_create' %}">Registrar Nuevo Visitante</a>
-    <ul>
-        {% for visitante in object_list %}
-            <li>
-                <a href="{% url 'visitante_detail' visitante.pk %}">{{ visitante.nombre }} {{ visitante.apellido_paterno }}</a>
-                - <a href="{% url 'visitante_update' visitante.pk %}">Editar</a>
-                - <a href="{% url 'visitante_delete' visitante.pk %}">Eliminar</a>
-            </li>
-        {% endfor %}
-    </ul>
+    <nav class="navbar">
+        <h1>Administración de Visitantes</h1>
+    </nav>
+    <div class="container">
+        <h1>Lista de visitantes</h1>
+        <h2>Haz click en un nombre para visualizar la información</h2>
+        <a href="{% url 'visitante_create' %}" class="create-button">Registrar nuevo visitante</a>
+        <ul class="resident-list">
+            {% for visitante in object_list %}
+                <li class="resident-item">
+                    <span>
+                        <a href="{% url 'visitante_detail' visitante.pk %}" class="resident-link">
+                            {{ visitante.nombre }} {{ visitante.apellido_paterno }}
+                        </a>
+                    </span>
+                    <div class="actions">
+                        <a href="{% url 'visitante_update' visitante.pk %}" class="edit-link">Editar</a>
+                        <a href="{% url 'visitante_delete' visitante.pk %}" class="delete-link">Eliminar</a>
+                    </div>
+                </li>
+                <div class="home-button">
+                    <a href="{% url 'home' %}" class="button-home">Volver al inicio</a>
+                    </div>
+            {% endfor %}
+        </ul>
+    </div>
 </body>
 </html>

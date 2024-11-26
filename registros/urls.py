@@ -1,11 +1,18 @@
 # registros/urls.py
 from django.urls import path
+from django.contrib.auth import views as auth_views
 from .views import (
     PersonalCreateView, PersonalDeleteView, PersonalDetailView, PersonalListView, PersonalUpdateView, ResidenteListView, ResidenteDetailView, ResidenteCreateView, ResidenteUpdateView, ResidenteDeleteView,
-    VisitanteListView, VisitanteDetailView, VisitanteCreateView, VisitanteUpdateView, VisitanteDeleteView
-)
+    VisitanteListView, VisitanteDetailView, VisitanteCreateView, VisitanteUpdateView, VisitanteDeleteView)
+from . import views
+
 
 urlpatterns = [
+    path('login/', views.login_view, name='login'),
+    path('home/',views.home, name="home"),
+
+
+
     # URLs para Residente
     path('residentes/', ResidenteListView.as_view(), name='residente_list'),
     path('residentes/<int:pk>/', ResidenteDetailView.as_view(), name='residente_detail'),

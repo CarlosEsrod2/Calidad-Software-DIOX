@@ -1,21 +1,39 @@
 <!-- templates/registros/residente_list.html -->
 <!DOCTYPE html>
 <html lang="es">
+{%  load static %}
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Residentes</title>
+    <link rel="stylesheet" href="{% static 'css/custom_list.css' %}">
 </head>
 <body>
-    <h1>Lista de Residentes</h1>
-    <a href="{% url 'residente_create' %}">Crear Nuevo Residente</a>
-    <ul>
-        {% for residente in object_list %}
-            <li>
-                <a href="{% url 'residente_detail' residente.pk %}">{{ residente.nombre }} {{ residente.apellido_paterno }}</a>
-                - <a href="{% url 'residente_update' residente.pk %}">Editar</a>
-                - <a href="{% url 'residente_delete' residente.pk %}">Eliminar</a>
-            </li>
-        {% endfor %}
-    </ul>
+    <nav class="navbar">
+        <h1>Administración de Residentes</h1>
+    </nav>
+    <div class="container">
+        <h1>Lista de Residentes</h1>
+        <h2>Haz click en un nombre para visualizar la información</h2>
+        <a href="{% url 'residente_create' %}" class="create-button">Crear Nuevo Residente</a>
+        <ul class="resident-list">
+            {% for residente in object_list %}
+                <li class="resident-item">
+                    <span>
+                        <a href="{% url 'residente_detail' residente.pk %}" class="resident-link">
+                            {{ residente.nombre }} {{ residente.apellido_paterno }}
+                        </a>
+                    </span>
+                    <div class="actions">
+                        <a href="{% url 'residente_update' residente.pk %}" class="edit-link">Editar</a>
+                        <a href="{% url 'residente_delete' residente.pk %}" class="delete-link">Eliminar</a>
+                    </div>
+                </li>
+                <div class="home-button">
+                    <a href="{% url 'home' %}" class="button-home">Volver al inicio</a>
+                    </div>
+            {% endfor %}
+        </ul>
+    </div>
 </body>
 </html>

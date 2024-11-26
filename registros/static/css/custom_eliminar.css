@@ -1,0 +1,80 @@
+/* Estilo general */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Contenedor principal */
+.container {
+    max-width: 400px;
+    width: 100%;
+    padding: 20px;
+}
+
+/* Tarjeta de confirmación */
+.card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Título */
+.card h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #5c0909;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 10px;
+}
+
+/* Texto de confirmación */
+.card p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+/* Estilo de las acciones */
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Botón de eliminar */
+.delete-button {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+}
+
+.delete-button:hover {
+    background-color: #d32f2f;
+}
+
+/* Botón de cancelar */
+.cancel-button {
+    background-color: #ddd;
+    color: #333;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.cancel-button:hover {
+    background-color: #bbb;
+}

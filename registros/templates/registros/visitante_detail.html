@@ -1,19 +1,37 @@
-<!-- templates/registros/visitante_detail.html -->
+<!-- templates/registros/residente_detail.html -->
 <!DOCTYPE html>
 <html lang="es">
+{% load static %}
 <head>
     <meta charset="UTF-8">
-    <title>Detalle de Visitante</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle de Residente</title>
+    <link rel="stylesheet" href="{% static 'css/custom_detail.css' %}">
 </head>
 <body>
-    <h1>Detalle de {{ visitante.nombre }} {{ visitante.apellido_paterno }}</h1>
-    <p><strong>RUT:</strong> {{ visitante.rut }}</p>
-    <p><strong>Parentesco con Residente:</strong> {{ visitante.parentesco }}</p>
-    <p><strong>Fecha de Nacimiento:</strong> {{ visitante.fecha_nacimiento }}</p>
-    <p><strong>Huella Dactilar:</strong> {{ visitante.huella_dactilar }}</p>
-
-    <a href="{% url 'visitante_update' visitante.pk %}">Editar</a>
-    <a href="{% url 'visitante_delete' visitante.pk %}">Eliminar</a>
-    <a href="{% url 'visitante_list' %}">Volver a la Lista</a>
+    <nav class="navbar">
+        <h1>Administración de Visitantes</h1>
+    </nav>
+    <div class="container">
+        
+        <div class="card">
+            <h1 class="card-title">{{ visitante.primer_nombre }} {{ visitante.apellido_paterno }}</h1>
+            <div class="card-content">
+                <p><strong>RUT:</strong> {{ visitante.rut }}</p>
+                <p><strong>Apellido Materno:</strong> {{ visitante.apellido_materno }}</p>
+                <p><strong>Parentesco con paciente:</strong> {{ visitante.parentesco_residente }}</p>
+                <p><strong>Fecha de nacimiento:</strong> {{ visitante.fecha_nacimiento }}</p>
+                <p><strong>Huella dactilar:</strong> {{ visitante.huella_dactilar }}</p>
+            </div>
+            <div class="card-actions">
+                <a href="{% url 'visitante_update' visitante.pk %}" class="action-button edit">Editar</a>
+                <a href="{% url 'visitante_delete' visitante.pk %}" class="action-button delete">Eliminar</a>
+                <a href="{% url 'visitante_list' %}" class="action-button back">Volver a la Lista</a>
+                <div class="home-button">
+                    <a href="{% url 'home' %}" class="button-home">Volver al inicio</a>
+                    </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

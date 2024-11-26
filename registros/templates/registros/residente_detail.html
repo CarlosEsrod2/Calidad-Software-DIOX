@@ -1,29 +1,46 @@
 <!-- templates/registros/residente_detail.html -->
 <!DOCTYPE html>
 <html lang="es">
+{% load static %}
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalle de Residente</title>
+    <link rel="stylesheet" href="{% static 'css/custom_detail.css' %}">
 </head>
 <body>
-    <h1>Detalle de {{ residente.nombre }} {{ residente.apellido_paterno }}</h1>
-    <p><strong>RUT:</strong> {{ residente.rut }}</p>
-    <p><strong>Fecha de Nacimiento:</strong> {{ residente.fecha_nacimiento }}</p>
-    <p><strong>Apoderado/Tutor:</strong> {{ residente.apoderado_tutor }}</p>
-    <p><strong>Alergias a Medicamentos:</strong> {{ residente.alergias_medicamentos }}</p>
-    <p><strong>Alergias Alimentarias:</strong> {{ residente.alergias_alimentarias }}</p>
-    <p><strong>Enfermedades Crónicas:</strong> {{ residente.enfermedades_cronicas }}</p>
-    <p><strong>Medicamentos:</strong> {{ residente.medicamentos }}</p>
-    <p><strong>Contactos de Emergencia:</strong> {{ residente.contactos_emergencia }}</p>
-    <p><strong>Estado Civil:</strong> {{ residente.estado_civil }}</p>
-    <p><strong>Nivel de Autonomía:</strong> {{ residente.nivel_autonomia }}</p>
-    <p><strong>Preferencias Alimentarias:</strong> {{ residente.preferencias_alimentarias }}</p>
-    <p><strong>Historial de Accidentes:</strong> {{ residente.historial_accidentes }}</p>
-    <p><strong>Observaciones:</strong> {{ residente.observaciones }}</p>
-    <p><strong>Huella Dactilar:</strong> {{ residente.huella_dactilar }}</p>
-
-    <a href="{% url 'residente_update' residente.pk %}">Editar</a>
-    <a href="{% url 'residente_delete' residente.pk %}">Eliminar</a>
-    <a href="{% url 'residente_list' %}">Volver a la Lista</a>
+    <nav class="navbar">
+        <h1>Administración de Residentes</h1>
+    </nav>
+    <div class="container">
+        
+        <div class="card">
+            <h1 class="card-title">{{ residente.nombre }} {{ residente.apellido_paterno }}</h1>
+            <div class="card-content">
+                <p><strong>RUT:</strong> {{ residente.rut }}</p>
+                <p><strong>Fecha de Nacimiento:</strong> {{ residente.fecha_nacimiento }}</p>
+                <p><strong>Apoderado/Tutor:</strong> {{ residente.apoderado_tutor }}</p>
+                <p><strong>Alergias a Medicamentos:</strong> {{ residente.alergias_medicamentos }}</p>
+                <p><strong>Alergias Alimentarias:</strong> {{ residente.alergias_alimentarias }}</p>
+                <p><strong>Enfermedades Crónicas:</strong> {{ residente.enfermedades_cronicas }}</p>
+                <p><strong>Medicamentos:</strong> {{ residente.medicamentos }}</p>
+                <p><strong>Contactos de Emergencia:</strong> {{ residente.contactos_emergencia }}</p>
+                <p><strong>Estado Civil:</strong> {{ residente.estado_civil }}</p>
+                <p><strong>Nivel de Autonomía:</strong> {{ residente.nivel_autonomia }}</p>
+                <p><strong>Preferencias Alimentarias:</strong> {{ residente.preferencias_alimentarias }}</p>
+                <p><strong>Historial de Accidentes:</strong> {{ residente.historial_accidentes }}</p>
+                <p><strong>Observaciones:</strong> {{ residente.observaciones }}</p>
+                <p><strong>Huella Dactilar:</strong> {{ residente.huella_dactilar }}</p>
+            </div>
+            <div class="card-actions">
+                <a href="{% url 'residente_update' residente.pk %}" class="action-button edit">Editar</a>
+                <a href="{% url 'residente_delete' residente.pk %}" class="action-button delete">Eliminar</a>
+                <a href="{% url 'residente_list' %}" class="action-button back">Volver a la Lista</a>
+                <div class="home-button">
+                    <a href="{% url 'home' %}" class="button-home">Volver al inicio</a>
+                    </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

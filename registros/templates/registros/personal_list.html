@@ -1,1 +1,43 @@
-<!-- vacío -->
+<!-- templates/registros/residente_list.html -->
+<!DOCTYPE html>
+<html lang="es">
+{%  load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Residentes</title>
+    <link rel="stylesheet" href="{% static 'css/custom_list.css' %}">
+</head>
+<body>
+    <nav class="navbar">
+        <h1>Administración de Personal</h1>
+    </nav>
+    <div class="container">
+        <h1>Lista de personal</h1>
+        <h2>Haz click en un nombre para visualizar la información</h2>
+        <a href="{% url 'personal_create' %}" class="create-button">Agregar nuevo personal</a>
+        <ul class="resident-list">
+            {% for personal in object_list %}
+                <li class="resident-item">
+                    <span>
+                        <a href="{% url 'personal_detail' personal.pk %}" class="resident-link">
+                            {{ personal.primer_nombre }} {{ personal.apellido_paterno }}
+                        </a>
+                    </span>
+                    <div class="actions">
+                        <a href="{% url 'personal_update' personal.pk %}" class="edit-link">Editar</a>
+                        <a href="{% url 'personal_delete' personal.pk %}" class="delete-link">Eliminar</a>
+                    </div>
+                    
+                </body>
+                
+                </li>
+                <div class="home-button">
+                    <a href="{% url 'home' %}" class="button-home">Volver al inicio</a>
+                    </div>
+                
+            {% endfor %}
+        </ul>
+    </div>
+    
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+    {% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Principal - Sistema de Gestión</title>
+    <link rel="stylesheet" href="{% static 'css/custom_home.css' %}">
+</head>
+<body>
+    <header class="header">
+        <h1>Bienvenido al Sistema de Gestión</h1>
+        <p>Seleccione la funcionalidad que desea utilizar.</p>
+    </header>
+
+    <main class="dashboard">
+        <div class="card">
+            <h2>Gestión de Residentes</h2>
+            <p>Registrar, modificar o consultar información de residentes.</p>
+            <a href="{% url 'residente_list' %}" class="button">Ir a gestionar residentes</a>
+        </div>
+        </div>
+
+        <div class="card">
+            <h2>Registro de Visitantes</h2>
+            <p>Registrar y gestionar visitas al recinto.</p>
+            <a href="{% url 'visitante_list' %}" class="button">Ir a Registro de Visitantes</a>
+        </div>
+
+        <div class="card">
+            <h2>Gestión de Personal</h2>
+            <p>Registrar y asignar roles al personal del recinto.</p>
+            <a href="{% url 'personal_list' %}" class="button">Ir a Gestión de Personal</a>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 Hogar de Reposo DIOXX_666. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

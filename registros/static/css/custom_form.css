@@ -1,0 +1,96 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    height: 100vh;
+    overflow-y: auto; /* Habilitar scroll para la página completa */
+}
+
+.container {
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Tarjeta del formulario */
+.form-card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Título */
+.form-card h1 {
+    margin-bottom: 20px;
+    color: #5c0909;
+    font-size: 24px;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 10px;
+}
+
+/* Estilo del formulario */
+.form {
+    text-align: left;
+}
+
+.form p {
+    margin-bottom: 15px;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+/* Botón principal */
+.form-button {
+    display: inline-block;
+    background-color: #5c0909;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+.form-button:hover {
+    background-color: #9e2121;
+}
+
+/* Botón de volver */
+.back-button {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 8px 15px;
+    background-color: #ddd;
+    color: #333;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #bbb;
+}
+.navbar {
+    background-color: #800000;
+    color: rgb(255, 255, 255);
+    padding: 10px;
+    text-align: center;
+  }

@@ -1,0 +1,50 @@
+<!-- login.html -->
+<!DOCTYPE html>
+<html lang="es">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'css/customLogin.css' %}">
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-xl fixed-top" style="background-color:#5c0909;">
+        <div class="container-fluid">
+            <h1>DIOX 666</h1>
+            <h2>Portal colaboradores</h2>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="login-header">Ingreso
+            <h2>Inicia sesión con tus credenciales</h2>
+        </div>
+        <form method="POST">
+            {% csrf_token %}
+            
+            <label for="id_username">Nombre de Usuario</label>
+            <input type="text" name="username" class="form-input" id="id_username" required>
+            
+            <label for="id_password">Contraseña</label>
+            <input type="password" name="password" class="form-input" id="id_password" required>
+            
+            <a href="{% url 'home' %}" type="submit" class="login-button">Ingresar</a>
+
+        </form>
+    </div>
+
+    {% if messages %}
+    <ul>
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+
+</body>
+
+</html>
